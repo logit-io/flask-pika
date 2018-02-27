@@ -74,7 +74,7 @@ class Pika(object):
         self.__DEBUG("Created AMQP Connection and Channel %s" % channel)
 
         # add support context manager
-        def close(channel):
+        def close():
             self.return_channel(channel)
         ch = ProxyContextManager(instance=channel, close_callback=close)
 
